@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        {% if is_mobile() or is_tablet() %}
+            {% set col = "col" %}
+        {% else %}
+            {% set col = "col-4" %}
+        {% endif %}
+        <div class="{{ col }}">
+            <div class="widget">
+                <h1>Welcome</h1>
+                <h6>This is the dashboard overview for the admin site for thymobruce.nl</h6>
+                <h6>You can view the stats, manage projects and reply to emails in this dashboard.</h6>
+                <h6>Also it's possible to manage users, upload files and view saved ideas to build later</h6>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="{{ col }}">
+            <div class="widget js_todoList">
+                <div class="row">
+                    <div class="col-9">
+                        <h1>To do</h1>
+                    </div>
+                    <div class="col" style="margin-top: 7.5px;">
+                        <h6 class="btn btn-primary js-addTodo">Add</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="hr hr-blurry">
+                </div>
+                <div class="row js-TodoBody">
+                    {% if todolist is defined and todolist is not empty %}
+                        {% for todo in todolist %}
+                            <div class="row">
+                                <div class="col">{{ todo.name }}</div>
+                                <div class="col">
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" data-todoId="{{ todo.id }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

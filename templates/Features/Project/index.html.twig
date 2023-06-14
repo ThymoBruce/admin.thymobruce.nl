@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-11">
+            <h3>Project Dashboard</h3>
+        </div>
+        <div class="col float-end">
+            <a href="{{ path('project_create') }}" type="button" class="btn btn-primary">
+                Create
+            </a>
+        </div>
+    </div>
+    <hr>
+    {{ render(controller('App\\Controller\\ProjectController::rows')) }}
+{% endblock %}

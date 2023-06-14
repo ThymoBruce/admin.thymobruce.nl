@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col">
+            <h3>Create Project</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            {{ form(form) }}
+        </div>
+    </div>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '.js-ClassicEditor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-3">
+            {% include 'Features/Messages/contacts.html.twig' %}
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block modal %}
+    {% include 'Features/Messages/messageModal.html.twig' %}
+{% endblock %}

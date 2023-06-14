@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="649de8b9-de71-4aba-88f8-bb8b452611ea" name="admin" url="http://136.144.146.162">
+        <fileTransfer rootFolder="/domains/admin.thymobruce.nl" host="136.144.146.162" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

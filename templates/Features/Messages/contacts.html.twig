@@ -1,0 +1,31 @@
+<div class="row widget">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h3>Contacts</h3>
+            </div>
+            <div class="col">
+                <i class='bx bx-message-alt-add float-end mt-2 js-NewMessage' style="font-size: 24px;" title="New chat" ></i>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <hr>
+        {% for contact in contacts %}
+            <div class="row js-OpenChat css-ChatMessage" data-contactId="{{ contact.id }}" style="padding: 5px 0;">
+                <div class="col-2">
+                    {{ contact.profileImage | default("") }}
+                </div>
+                <div class="col">
+                    {{ contact.name }}
+                    <br>
+                    {% if contact.lastMessage is defined %}
+                    <sub>{{ contact.lastMessage | length > 50 ? contact.lastMessage | slice(0,50) ~ '...' : contact.lastMessage }}</sub>
+                    {% else %}
+                        <sub>{{ contact.description | length > 50 ? contact.description | slice(0,50) ~ '...' : contact.description }}</sub>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+</div>

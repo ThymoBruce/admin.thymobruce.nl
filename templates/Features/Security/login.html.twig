@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="wrapper">
+
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <div class="title">Login Form</div>
+            <form method="post" action="{{ path('login_check') }}">
+                <div class="field">
+                    <input type="text" id="username" name="_username" class="form-control" required autofocus>
+                    <label>Email Address</label>
+                </div>
+                <div class="field">
+                    <input type="password" id="password" name="_password" class="form-control" required>
+                    <label>Password</label>
+                </div>
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

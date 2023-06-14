@@ -1,0 +1,26 @@
+{% for project in projects %}
+    {% if loop.first %}
+        <div class="card-deck"> {# open row #}
+    {% endif %}
+
+    <div class="card">
+        <img class="card-img-top" src="/uploads/project/image/{{ project.image | default('') }}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <p class="card-text">{{ project.description | raw }}</p>
+            <div class="row">
+                <div class="col">
+                    <a href="{{ path('project_edit', {'id': project.id}) }}" class="btn btn-primary float-end">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if loop.index % 3 == 0 %}
+        </div><div class="row"> {# after 3 iterates close row and open new #}
+    {% endif %}
+    {% if loop.last %}
+        </div> {# close last row #}
+    {% endif %}
+    <br>
+{% endfor %}
